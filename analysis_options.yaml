@@ -1,0 +1,42 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    # ------ Desativar regras individuais ----- #
+    # --- #
+    # Desligue o que você não gosta. #
+    # ------------------------------------- #
+
+    # Use a ordem dos parâmetros como na resposta json
+    always_put_required_named_parameters_first: false
+
+    # Classes de utilitários são incríveis!
+    avoid_classes_with_only_static_members: false
+
+
+    # ------ Habilitar regras individuais ------ #
+    # --- #
+    # Estas regras aqui são boas, mas também #
+    # opinativo para habilitá-los por padrão #
+    # ------------------------------------- #
+
+    # Faça dos construtores a primeira coisa em todas as classes
+    sort_constructors_first: true
+
+    # As novas guias vs. espaços. Escolha sabiamente
+    prefer_single_quotes: true
+    prefer_double_quotes: false
+
+    # Bons pacotes documentam tudo
+    public_member_api_docs: false
+
+    # Siga cegamente o estilo de código Flutter, que prefere tipos em todos os lugares
+    always_specify_types: false
+
+    # De volta aos anos 80
+    lines_longer_than_80_chars: false
+    use_setters_to_change_properties: false
+    avoid_positional_boolean_parameters: false
+    constant_identifier_names: false
+    prefer_const_literals_to_create_immutables: false
+    must_be_immutable: false

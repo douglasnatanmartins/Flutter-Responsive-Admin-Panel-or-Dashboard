@@ -1,3 +1,5 @@
+
+
 import 'package:admin/models/MyFiles.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +8,7 @@ import '../../../constants.dart';
 import 'file_info_card.dart';
 
 class MyFiels extends StatelessWidget {
-  const MyFiels({
-    Key key,
-  }) : super(key: key);
+  const MyFiels({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,10 @@ class MyFiels extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "My Files",
+              "Estatisticas",
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            ElevatedButton.icon(
+            /*ElevatedButton.icon(
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                   horizontal: defaultPadding * 1.5,
@@ -33,10 +33,10 @@ class MyFiels extends StatelessWidget {
               onPressed: () {},
               icon: Icon(Icons.add),
               label: Text("Add New"),
-            ),
+            ),*/
           ],
         ),
-        SizedBox(height: defaultPadding),
+        const SizedBox(height: defaultPadding),
         Responsive(
           mobile: FileInfoCardGridView(
             crossAxisCount: _size.width < 650 ? 2 : 4,
@@ -54,7 +54,7 @@ class MyFiels extends StatelessWidget {
 
 class FileInfoCardGridView extends StatelessWidget {
   const FileInfoCardGridView({
-    Key key,
+    Key? key,
     this.crossAxisCount = 4,
     this.childAspectRatio = 1,
   }) : super(key: key);
@@ -65,7 +65,7 @@ class FileInfoCardGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: demoMyFiels.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -74,7 +74,11 @@ class FileInfoCardGridView extends StatelessWidget {
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => FileInfoCard(info: demoMyFiels[index]),
+      itemBuilder: (context, index) =>
+          FileInfoCard(
+              info: demoMyFiels[index] as CloudStorageInfo,
+            onPressed: (){},
+          ),
     );
   }
 }

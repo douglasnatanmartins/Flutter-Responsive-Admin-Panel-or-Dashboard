@@ -1,3 +1,5 @@
+
+
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -8,15 +10,20 @@ import 'components/recent_files.dart';
 import 'components/storage_details.dart';
 
 class DashboardScreen extends StatelessWidget {
+
+  const DashboardScreen({Key? key, required this.scaffoldKey}) : super(key: key);
+
+  final GlobalKey<ScaffoldState> scaffoldKey;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         child: Column(
           children: [
-            Header(),
-            SizedBox(height: defaultPadding),
+            Header(title: 'Dashboard', scaffoldKey: scaffoldKey),
+            const SizedBox(height: defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -24,12 +31,12 @@ class DashboardScreen extends StatelessWidget {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyFiels(),
-                      SizedBox(height: defaultPadding),
-                      RecentFiles(),
+                      const MyFiels(),
+                      const SizedBox(height: defaultPadding),
+                      const RecentFiles(),
                       if (Responsive.isMobile(context))
-                        SizedBox(height: defaultPadding),
-                      if (Responsive.isMobile(context)) StarageDetails(),
+                        const SizedBox(height: defaultPadding),
+                      if (Responsive.isMobile(context)) const StarageDetails(),
                     ],
                   ),
                 ),
